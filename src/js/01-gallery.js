@@ -1,7 +1,7 @@
 // Add imports above this line
 import { galleryItems } from './gallery-items';
 import SimpleLightbox from "simplelightbox";
-import SimpleLightbox from "simplelightbox/dist/simple-lightbox.esm";
+import "simplelightbox/dist/simple-lightbox.min.css";
 // Change code below this line
 
 //gallery
@@ -25,6 +25,19 @@ function galleryCards(gallery){
 galleryComponent.insertAdjacentHTML('beforeend', addedGalleryCard);
 
 let gallery = new SimpleLightbox('.gallery a');
-gallery.on('show.simplelightbox', function(){});
+gallery.on('show.simplelightbox', function () {
+	// Do something…
+});
+
+gallery.on('error.simplelightbox', function (e) {
+	console.log(e); // Some usefull information
+});
+
+// with jQuery nearly the same
+let gallery = $('.gallery a').simpleLightbox();
+gallery.on('show.simplelightbox', function () {
+	// Do something…
+});
+
 
 
